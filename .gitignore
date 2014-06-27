@@ -1,2 +1,4 @@
 # ignore vim's undo files!
 %*
+# ignore vim temporary files
+*.swp
