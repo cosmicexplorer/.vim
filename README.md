@@ -1,10 +1,13 @@
 .vim
 ==========
 
-personal vim configuration
+personal vim configuration, heavily sourced from Eevee from veekun
 
 ## For Use
 Alias ```vim``` to ```vim -p ~/.vim/.vimrc``` in your preferred shell. Change ~ to wherever you cloned the git repo to.
+
+## Issues
+On systems with limited character support, the lines "set listchars" and "set showbreak" in .vimrc will cause errors. Remove these.
 
 ## How to install required packages
 
