@@ -2,3 +2,5 @@
 %*
 # ignore vim temporary files
 *.swp
+# ignore random generated files
+.netrwhist
