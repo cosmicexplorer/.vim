@@ -345,6 +345,9 @@ hi WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+\%#\@<!$/
 
 
+"" LANGUAGE-SPECIFIC OPTIONS
+au BufNewFile,BufRead *.tpp set syn=cpp
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Last but not least, allow for local overrides
 if filereadable(expand("~/.vimrc.local"))
