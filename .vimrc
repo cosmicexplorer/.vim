@@ -56,13 +56,11 @@ set expandtab " never use hard tabs
 set shiftround " only indent to multiples of shiftwidth
 set smarttab " DTRT when shiftwidth/softtabstop diverge
 set fileformats=unix,dos " unix linebreaks in new files please
-set listchars=tab:↹·,extends:⇉,precedes:⇇,nbsp:␠,trail:␠,nbsp:␣
 " appearance of invisible characters
 
 " wrapping
 "set colorcolumn=+1 " highlight 81st column
 set linebreak " break on what looks like boundaries
-set showbreak=↳\ " shown at the start of a wrapped line
 "set textwidth=80 " wrap after 80 columns
 
 
@@ -351,5 +349,5 @@ au BufNewFile,BufRead *.tpp set syn=cpp
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Last but not least, allow for local overrides
 if filereadable(expand("~/.vimrc.local"))
-    source ~/.vimrc.local
+    source ~/.vim/.vimrc.local
 endif
