@@ -2,6 +2,7 @@
 
 "" FIXING INPUT ERRORS ON XTERM
 imap  
+cmap  
 
 " vim mode preferred!
 set nocompatible
