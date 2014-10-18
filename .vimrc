@@ -1,5 +1,8 @@
 " Eevee's vimrc
 
+"" FIXING INPUT ERRORS ON XTERM
+imap  
+
 " vim mode preferred!
 set nocompatible
 
@@ -341,7 +344,6 @@ endif " has("autocmd")
 hi ColorColumn ctermbg=black guibg=darkgray
 hi WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+\%#\@<!$/
-
 
 "" LANGUAGE-SPECIFIC OPTIONS
 au BufNewFile,BufRead *.tpp set syn=cpp
