@@ -354,3 +354,17 @@ au BufNewFile,BufRead *.tpp set syn=cpp
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vim/.vimrc.local
 endif
+
+func Backspace()
+  if col('.') == 1
+    if line('.')  != 1
+      return  "\<ESC>kA\<Del>"
+    else
+      return ""
+    endif
+  else
+    return "\<Left>\<Del>"
+  endif
+endfunc
+
+inoremap <Char-0x7f> <c-r>=Backspace()<CR>
