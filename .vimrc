@@ -368,3 +368,5 @@ func Backspace()
 endfunc
 
 inoremap <Char-0x7f> <c-r>=Backspace()<CR>
+cnoremap <Char-0x7f> <BS>
+
