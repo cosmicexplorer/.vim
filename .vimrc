@@ -4,9 +4,17 @@
 imap  
 cmap  
 
-if exists("*pathogen#runtime_append_all_bundles")
-    " nothing for now
-else
+function! CheckIfRoot()
+python << endpython
+import os, vim
+
+if (os.getenv('HOME') == '/root'):
+    vim.command('return 0')
+    vim.command('return 1')
+endpython
+endfunction
+
+if CheckIfRoot()
     set runtimepath+=/usr/share/vim
 endif
 
