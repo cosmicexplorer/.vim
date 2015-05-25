@@ -4,6 +4,12 @@
 imap  
 cmap  
 
+if exists("*pathogen#runtime_append_all_bundles")
+    " nothing for now
+else
+    set runtimepath+=/usr/share/vim
+endif
+
 " vim mode preferred!
 set nocompatible
 
@@ -355,17 +361,21 @@ if filereadable(expand("~/.vimrc.local"))
     source ~/.vim/.vimrc.local
 endif
 
-func Backspace()
-  if col('.') == 1
-    if line('.')  != 1
-      return  "\<ESC>kA\<Del>"
+if exists("*Backspace")
+    " nothing for now
+else
+    func Backspace()
+    if col('.') == 1
+        if line('.')  != 1
+        return  "\<ESC>kA\<Del>"
+        else
+        return ""
+        endif
     else
-      return ""
+        return "\<Left>\<Del>"
     endif
-  else
-    return "\<Left>\<Del>"
-  endif
-endfunc
+    endfunc
+endif
 
 inoremap <Char-0x7f> <c-r>=Backspace()<CR>
 cnoremap <Char-0x7f> <BS>
