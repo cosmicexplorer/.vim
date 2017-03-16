@@ -1,8 +1,8 @@
 " Eevee's vimrc
 
-"" FIXING INPUT ERRORS ON XTERM
-imap  
-cmap  
+" FIXING INPUT ERRORS ON XTERM
+"imap  
+"cmap  
 
 function! CheckIfRoot()
 python << endpython
@@ -116,16 +116,18 @@ set nrformats-=octal " don't try to auto-increment 'octal'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 " Pathogen; load all bundles
-filetype off " uh, necessary
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+"filetype off " uh, necessary
+"call pathogen#runtime_append_all_bundles()
+"call pathogen#helptags()
+execute pathogen#infect()
 
 " SuperTab and tab completion; use omni completion but
 "let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 set omnifunc=syntaxcomplete#Complete
 "autocmd FileType *
-"    \ call SuperTabChain(&omnifunc, "<c-p>") |
-"    \ call SuperTabSetDefaultCompletionType("<c-x><c-u>")
+"call SuperTabChain(&omnifunc, "<c-p>") |
+"call SuperTabSetDefaultCompletionType("<c-x><c-u>")
+
 
 " Python-mode; linting is kind of annoying, so tame it
 let g:pymode_lint_checker = "pyflakes"
@@ -169,6 +171,8 @@ map gb :exe "tabn ".g:ltv<CR>
 function! Setlasttabpagevisited()
     let g:ltv = tabpagenr()
 endfunction
+
+" function! killLine 
 
 augroup localtl
 au!
@@ -290,6 +294,7 @@ if has("autocmd")
 
     " when opening split screen buffer, continue to set relativenumber
     au BufEnter * set relativenumber
+    au BufEnter * set buflisted
 
     " reload .vimrc automatically upon writing (from stack overflow)
     augroup myvimrc
@@ -364,11 +369,6 @@ match WhitespaceEOL /\s\+\%#\@<!$/
 au BufNewFile,BufRead *.tpp set syn=cpp
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Last but not least, allow for local overrides
-if filereadable(expand("~/.vimrc.local"))
-    source ~/.vim/.vimrc.local
-endif
-
 if exists("*Backspace")
     " nothing for now
 else
@@ -385,6 +385,13 @@ else
     endfunc
 endif
 
-inoremap <Char-0x7f> <c-r>=Backspace()<CR>
-cnoremap <Char-0x7f> <BS>
+au CmdwinEnter :  let b:cpt_save = &cpt | set cpt=.
+au CmdwinLeave :  let &cpt = b:cpt_save
+"au BufEnter
+
+command LA windo :FufBuffer
+
+"function Backspace
+"command delete
+"noremap <Char-0x7f> <c-r>=Backspace()<CR>
 
