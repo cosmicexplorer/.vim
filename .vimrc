@@ -172,7 +172,7 @@ function! Setlasttabpagevisited()
     let g:ltv = tabpagenr()
 endfunction
 
-" function! killLine 
+" function! killLine
 
 augroup localtl
 au!
@@ -219,6 +219,7 @@ nnoremap tt :GundoToggle<CR>
 " turn on hex editing mode
 nnoremap hh :Hexmode<CR>
 
+cmap  
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " functions n such
@@ -304,7 +305,7 @@ if has("autocmd")
 
     "auto write every minute
     set updatetime=60000 "in milliseconds
-    au! CursorHoldI,CursorHold,BufLeave <buffer> silent! :update 
+    au! CursorHoldI,CursorHold,BufLeave <buffer> silent! :update
 
 
 
@@ -389,9 +390,8 @@ au CmdwinEnter :  let b:cpt_save = &cpt | set cpt=.
 au CmdwinLeave :  let &cpt = b:cpt_save
 "au BufEnter
 
-command LA windo :FufBuffer
+" command LA windo :FufBuffer
 
 "function Backspace
 "command delete
 "noremap <Char-0x7f> <c-r>=Backspace()<CR>
-
