@@ -116,9 +116,6 @@ set nrformats-=octal " don't try to auto-increment 'octal'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 " Pathogen; load all bundles
-"filetype off " uh, necessary
-"call pathogen#runtime_append_all_bundles()
-"call pathogen#helptags()
 execute pathogen#infect()
 
 " SuperTab and tab completion; use omni completion but
