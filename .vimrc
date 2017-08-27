@@ -4,18 +4,17 @@
 "imap  
 "cmap  
 
-function! CheckIfRoot()
-python << endpython
-import os, vim
+" function! CheckIfRoot()
+" python << endpython
+" import os, vim
+" if (os.getenv('HOME') == '/root'):
+"     vim.command('return 0')
+"     vim.command('return 1')
+" endpython
+" endfunction
 
-if (os.getenv('HOME') == '/root'):
-    vim.command('return 0')
-    vim.command('return 1')
-endpython
-endfunction
-
-if CheckIfRoot()
-    set runtimepath+=/usr/share/vim
+if $USER == 'root'
+  set runtimepath+=/usr/share/vim
 endif
 
 " vim mode preferred!
@@ -200,8 +199,8 @@ nmap dc <C-W><C-J>
 nmap df <C-W><C-L>
 
 " so i can do that cool emacs thing with terminals in a split window
-cabbr bash ConqueTerm bash
-cabbr zsh ConqueTerm zsh
+" cabbr bash ConqueTerm bash
+" cabbr zsh ConqueTerm zsh
 
 " quickly move to front and back of tabs
 nmap gq :tabfir<CR>
