@@ -20,6 +20,14 @@ endif
 " vim mode preferred!
 set nocompatible
 
+" mindlessly setup vundle as per their readme so i can just use conqueterm
+filetype off
+set runtimepath+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+call vundle#end()
+filetype plugin indent on
+
 " set xterm title, and inform vim of screen/tmux's syntax for doing the same
 set titlestring=vim\ %{expand(\"%t\")}
 if &term =~ "^screen"
@@ -36,6 +44,8 @@ if &term =~ "^screen"
     set t_fs=\
 endif
 set title
+
+set whichwrap=b,s,<,>,[,]
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -67,7 +77,7 @@ set smartcase " case-sens when capital letters
 
 " whitespace
 set autoindent " keep indenting on <CR>
-set shiftwidth=4 " one tab = four spaces (autoindent)
+set shiftwidth=2 " one tab = four spaces (autoindent)
 set softtabstop=4 " one tab = four spaces (tab key)
 set expandtab " never use hard tabs
 set shiftround " only indent to multiples of shiftwidth
@@ -76,15 +86,15 @@ set fileformats=unix,dos " unix linebreaks in new files please
 " appearance of invisible characters
 
 " wrapping
-"set colorcolumn=+1 " highlight 81st column
+set colorcolumn=+1 " highlight 81st column
 set linebreak " break on what looks like boundaries
-"set textwidth=80 " wrap after 80 columns
+set textwidth=100 " wrap after 80 columns
 
 
 " gui stuff
 set ttymouse=xterm2 " force mouse support for screen
 set mouse=a " terminal mouse when possible
-set guifont=Source\ Code\ Pro\ 9
+set guifont=Telegrama
 " nice fixedwidth font
 
 " unicode
@@ -100,7 +110,7 @@ set wildmode=full " complete longest common prefix first
 set wildignore+=.*.sw*,__pycache__,*.pyc
 " ignore junk files
 set complete-=i " don't try to tab-complete #included files
-set completeopt-=preview " preview window is super annoying
+"set completeopt-=preview " preview window is super annoying
 
 " miscellany
 set autoread " reload changed files
@@ -199,8 +209,8 @@ nmap dc <C-W><C-J>
 nmap df <C-W><C-L>
 
 " so i can do that cool emacs thing with terminals in a split window
-" cabbr bash ConqueTerm bash
-" cabbr zsh ConqueTerm zsh
+cabbr bash ConqueTerm bash
+cabbr zsh ConqueTerm zsh
 
 " quickly move to front and back of tabs
 nmap gq :tabfir<CR>
@@ -300,8 +310,8 @@ if has("autocmd")
     augroup END
 
     "auto write every minute
-    set updatetime=60000 "in milliseconds
-    au! CursorHoldI,CursorHold,BufLeave <buffer> silent! :update
+    " set updatetime=60000 "in milliseconds
+    " au! CursorHoldI,CursorHold,BufLeave <buffer> silent! :update
 
 
 
